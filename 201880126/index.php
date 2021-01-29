@@ -82,31 +82,31 @@
                                     <span class="input-group-text"> <i class="fa fa-address-book"></i> </span>
                                 </div>
                                 <input name="fname" value="<?php echo $fname; ?>" class="form-control form-control-lg" placeholder="First Name" type="text">
-                            </div> <!-- input-group.// -->
-                        </div> <!-- form-group// -->
+                            </div> 
+                        </div> 
                         <div class="form-group mb-1">
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"> <i class="fa fa-address-book"></i> </span>
                                 </div>
                                 <input name="lname" value="<?php echo $lname; ?>" class="form-control form-control-lg" placeholder="Last Name" type="text">
-                            </div> <!-- input-group.// -->
-                        </div> <!-- form-group// -->
+                            </div> 
+                        </div> 
                         <div class="form-group mb-1">
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"> <i class="fa fa-book"></i> </span>
                                 </div>
                                 <input name="program" value="<?php echo $program; ?>" class="form-control form-control-lg" placeholder="Program" type="text">
-                            </div> <!-- input-group.// -->
-                        </div> <!-- form-group// -->
+                            </div> 
+                        </div> 
                         <div class="form-group">
                             <?php if ($edit_state == false): ?>
                                 <button name="save-btn" type="submit" class="btn btn-primary btn-block">Save</button>
                             <?php else: ?>
                                 <button name="update-btn" type="submit" class="btn btn-primary btn-block">Update</button>
                             <?php endif ?>
-                        </div> <!-- form-group// -->
+                        </div>
                     </form>
                 </div>
             </div>
