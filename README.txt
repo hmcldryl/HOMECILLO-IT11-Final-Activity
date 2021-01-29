@@ -9,5 +9,6 @@ STEP 3: Start XAMPP/WampServer.
 STEP 4: Open your browser and go to phpMyAdmin.
 STEP 5: Run the SQL Scripts in the "Scripts.txt" file.
 STEP 6: Go to "http://localhost/201880126/".
+STEP 7: Log in using "admin" as username and "password" as password.
 DONE!
 
