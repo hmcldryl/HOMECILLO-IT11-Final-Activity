@@ -38,8 +38,11 @@
                             <input name="password" class="form-control form-control-lg" placeholder="Password" type="password">
                         </div> <!-- input-group.// -->
                     </div> <!-- form-group// -->
-                    <div class="form-group">
+                    <div class="form-group mb-2">
                         <button name="login-btn" type="submit" class="btn btn-primary btn-block">Login</button>
+                    </div> <!-- form-group// -->
+                    <div class="form-group mb-0">
+                        <a href="register.php" class="btn btn-primary btn-block">Register</a>
                     </div> <!-- form-group// -->
                 </form>
             </article>
