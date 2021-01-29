@@ -10,12 +10,16 @@
     if (isset($_GET['edit'])) {
         $id = $_GET['edit'];
         $edit_state = true;
-        $rec = mysqli_query($db, "SELECT * FROM crud WHERE id=$id");
+        $rec = mysqli_query($db, "SELECT * FROM country WHERE id=$id");
         $record = mysqli_fetch_array($rec);
         $id = $record['id'];
-        $fname = $record['fname'];
-        $lname = $record['lname'];
-        $program = $record['program'];
+        $iso = $record['iso'];
+        $name = $record['name'];
+        $nicename = $record['nicename'];
+        $iso3 = $record['iso3'];
+        $numcode = $record['numcode'];
+        $phonecode = $record['phonecode'];
+        $created_at = $record['created_at'];
     }
 
 ?>
@@ -23,14 +27,12 @@
 <html>
 <head>
     <title>201880126 | Home</title>
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <script src="https://use.fontawesome.com/14cfaf5485.js"></script>
 </head>
 <body class="bg-dark">
-    <div class="container d-flex justify-content-center">
-        <div class="card w-75 m-5">
+    <div class="container-fluid d-flex justify-content-center">
+        <div class="card m-5">
             <div class="card-header">
                 <?php if (isset($_SESSION['message'])): ?>
                     <div class="alert alert-success">
@@ -49,19 +51,27 @@
                     <thead class="thead-dark">
                         <tr class="text-center">
                             <th scope="col">No.</th>
-                            <th scope="col">First Name</th>
-                            <th scope="col">Last Name</th>
-                            <th scope="col">Program</th>
-                            <th colspan="2" scope="col">Actions</th>
+                            <th scope="col">ISO</th>
+                            <th scope="col">NAME</th>
+                            <th scope="col">NICE NAME</th>
+                            <th scope="col">ISO3</th>
+                            <th scope="col">NUMCODE</th>
+                            <th scope="col">PHONECODE</th>
+                            <th scope="col">CREATED AT</th>
+                            <th colspan="2" scope="col">ACTIONS</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php while ($row = mysqli_fetch_array($results)) { ?>
-                            <tr>
-                                <th class="text-center" scope="row"><?php echo $row['id']; ?></th>
-                                <td><?php echo $row['fname']; ?></td>
-                                <td><?php echo $row['lname']; ?></td>
-                                <td><?php echo $row['program']; ?></td>
+                            <tr class="text-center">
+                                <th scope="row"><?php echo $row['id']; ?></th>
+                                <td><?php echo $row['iso']; ?></td>
+                                <td><?php echo $row['name']; ?></td>
+                                <td><?php echo $row['nicename']; ?></td>
+                                <td><?php echo $row['iso3']; ?></td>
+                                <td><?php echo $row['numcode']; ?></td>
+                                <td><?php echo $row['phonecode']; ?></td>
+                                <td><?php echo $row['created_at']; ?></td>
                                 <td>
                                     <a href="index.php?edit=<?php echo $row['id'] ?>" class="btn btn-primary">Edit</a>
                                 </td>
@@ -79,27 +89,51 @@
                         <div class="form-group mb-1">
                             <div class="input-group">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text"> <i class="fa fa-address-book"></i> </span>
+                                    <span class="input-group-text"> <i class="fa fa-globe"></i> </span>
                                 </div>
-                                <input name="fname" value="<?php echo $fname; ?>" class="form-control form-control-lg" placeholder="First Name" type="text">
+                                <input name="iso" value="<?php echo $iso; ?>" class="form-control form-control-lg" placeholder="ISO" type="text">
                             </div> 
                         </div> 
                         <div class="form-group mb-1">
                             <div class="input-group">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text"> <i class="fa fa-address-book"></i> </span>
+                                    <span class="input-group-text"> <i class="fa fa-globe"></i> </span>
                                 </div>
-                                <input name="lname" value="<?php echo $lname; ?>" class="form-control form-control-lg" placeholder="Last Name" type="text">
+                                <input name="name" value="<?php echo $name; ?>" class="form-control form-control-lg" placeholder="NAME" type="text">
                             </div> 
                         </div> 
                         <div class="form-group mb-1">
                             <div class="input-group">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text"> <i class="fa fa-book"></i> </span>
+                                    <span class="input-group-text"> <i class="fa fa-globe"></i> </span>
                                 </div>
-                                <input name="program" value="<?php echo $program; ?>" class="form-control form-control-lg" placeholder="Program" type="text">
+                                <input name="nicename" value="<?php echo $nicename; ?>" class="form-control form-control-lg" placeholder="NICENAME" type="text">
                             </div> 
-                        </div> 
+                        </div>
+                        <div class="form-group mb-1">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"> <i class="fa fa-globe"></i> </span>
+                                </div>
+                                <input name="iso3" value="<?php echo $iso3; ?>" class="form-control form-control-lg" placeholder="ISO3" type="text">
+                            </div> 
+                        </div>
+                        <div class="form-group mb-1">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"> <i class="fa fa-globe"></i> </span>
+                                </div>
+                                <input name="numcode" value="<?php echo $numcode; ?>" class="form-control form-control-lg" placeholder="NUMCODE" type="text">
+                            </div> 
+                        </div>
+                        <div class="form-group mb-1">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"> <i class="fa fa-globe"></i> </span>
+                                </div>
+                                <input name="phonecode" value="<?php echo $phonecode; ?>" class="form-control form-control-lg" placeholder="PHONECODE" type="text">
+                            </div> 
+                        </div>
                         <div class="form-group">
                             <?php if ($edit_state == false): ?>
                                 <button name="save-btn" type="submit" class="btn btn-primary btn-block">Save</button>
@@ -122,6 +156,8 @@
             </div>
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
 </body>
 
 </html>
