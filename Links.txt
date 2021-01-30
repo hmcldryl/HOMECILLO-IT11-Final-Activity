@@ -5,10 +5,10 @@ Program and Block: BSIT B1A
 LINKS:
 
 Github Repository:
-https://github.com/hmcldryl/HOMECILLO-IT11-Final-Activity
+https://github.com/hmcldryl/HOMECILLO-IT11-Final-Drill-Activity
 
 Live Web App URL:
 https://johndarylhomecillo.000webhostapp.com/
 
 Google Drive Link:
-https://drive.google.com/drive/folders/1rH2-aBsgwj_aEly9qiWeaWYlmJH_mr6f?usp=sharing
+https://drive.google.com/drive/folders/1azUQFGfwF8p2E7DDC0MjL8NnwssudiYY?usp=sharing
